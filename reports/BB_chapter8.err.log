@@ -17,14 +17,14 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-dessert("초코", "바닐라", order_dessert)
+print(f'Global scope: {amount1, amount2}')
 ------------------
 
 [1;31m---------------------------------------------------------------------------[0m
 [1;31mNameError[0m                                 Traceback (most recent call last)
-[1;32m<ipython-input-9-3b163d161db0>[0m in [0;36m<module>[1;34m[0m
-[1;32m----> 1[1;33m [0mdessert[0m[1;33m([0m[1;34m"초코"[0m[1;33m,[0m [1;34m"바닐라"[0m[1;33m,[0m [0morder_dessert[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m<ipython-input-2-9791c13b25f1>[0m in [0;36m<module>[1;34m[0m
+[1;32m----> 1[1;33m [0mprint[0m[1;33m([0m[1;34mf'Global scope: {amount1, amount2}'[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
 [0m
-[1;31mNameError[0m: name 'order_dessert' is not defined
-NameError: name 'order_dessert' is not defined
+[1;31mNameError[0m: name 'amount1' is not defined
+NameError: name 'amount1' is not defined
 
