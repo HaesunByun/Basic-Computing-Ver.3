@@ -392,7 +392,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-source-code-4">Sample Source Code #4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-else">while ~ else</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-source-code-5">Sample Source Code #5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">continue</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while">while 중첩문</a></li>
 </ul>
 </li>
@@ -560,7 +559,7 @@ count=5
 </div>
 <div class="info admonition">
 <p class="admonition-title">True와 False의 의미</p>
-<p>프로그래밍에서 True는 1의 값을 가지며, False는 0의 값을 가진다. 엄밀히 말하면 False와 0을 제외한 모든 값은 True의 의미를 가진다. 따라서 while ‘a’: 와 같이 써도 무한 반복된다.</p>
+<p>프로그래밍에서 True는 정수 1, False는 정수 0으로 변환할 수 있다. 즉, while 1: 와 같이 써도 while True:와 같이 무한 반복된다. False, None, 0, 빈 문자열(“”)과 같은 값들은 False로 평가된다. 반대로 값이 들어 있는 문자열처럼 비어 있지 않은 값은 True로 평가된다. 따라서 while ‘a’: 와 같이 써도 무한 반복된다.</p>
 </div>
 </div>
 <div class="section" id="sample-source-code-4">
@@ -655,24 +654,6 @@ count=5
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="continue">
-<h3>continue<a class="headerlink" href="#continue" title="Permalink to this headline">#</a></h3>
-<p>반복문에서 continue를 만나면 continue 아래쪽에 있는 모든 코드는 실행하지 않고 while문이 있는 라인으로 이동한다. 즉, 조건에 따라 건너뛰기를 하고 싶을 때 사용하는 키워드이다.</p>
-<p>아래 코드에서는 ‘2’가 포함되어 있으면 출력하지 않고 건너뛴다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">31</span><span class="p">:</span>
-    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="s1">&#39;2&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
-      <span class="k">continue</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>😄문제. 3, 6, 9 게임을 만들어보세요. 3,6,9가 문자열에 들어 있는 경우에는 박수를 숫자만큼 출력하시오.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;👏&quot;</span><span class="o">*</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="c1">#https://www.emojiengine.com/ko/keyboard/</span>
 </pre></div>
@@ -692,20 +673,34 @@ count=5
 ......
 </pre></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 예</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">31</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="s1">&#39;2&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="while">
 <h3>while 중첩문<a class="headerlink" href="#while" title="Permalink to this headline">#</a></h3>
 <p>중첩 while문은 while문 안에 while문이 들어 있는 것을 말한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_num</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">while</span> <span class="n">out_num</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
-  <span class="n">in_num</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="k">while</span> <span class="n">in_num</span> <span class="o">&lt;=</span> <span class="n">out_num</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;🍩&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">in_num</span> <span class="o">+=</span> <span class="mi">1</span>
-  <span class="nb">print</span><span class="p">()</span>
-  <span class="n">out_num</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># while 중첩문으로 별 찍기 (삼각형)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">rows</span><span class="p">:</span>           <span class="c1"># 바깥 while: 줄(row)</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">i</span><span class="p">:</span>          <span class="c1"># 안쪽 while: 각 줄의 별 개수</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="c1"># 줄바꿈 없이 별 출력</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">()</span>                <span class="c1"># 줄바꿈</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -927,7 +922,7 @@ count=5
 <li><p>반복구조는 조건 또는 범위에 따라 실행문장을 반복한다.</p></li>
 <li><p>while문은 조건비교 결과가 True인 동안 블록 소스코드를 반복 수행한다.</p></li>
 <li><p>for문은 범위의 처음부터 끝까지 차례대로 반복한다.</p></li>
-<li><p>for문의 in 연산자 뒤에는 반복가능한 데이터타입인 숫자, 리스트, 문자열, 딕셔너리, 튜플, 셋 등이 올 수 있다.</p></li>
+<li><p>for문의 in 연산자 뒤에는 반복가능한 데이터타입인 range(숫자), 리스트, 문자열, 딕셔너리, 튜플, 셋 등이 올 수 있다.</p></li>
 <li><p>for 다음의 변수는 in 뒤에 있는 자료값을 하나씩 차례대로 저장한다.</p></li>
 <li><p>for문은 숫자값의 범위를 만들어주는 range()함수를 유용하게 활용한다.</p></li>
 </ul>
@@ -1005,7 +1000,6 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-source-code-4">Sample Source Code #4</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-else">while ~ else</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-source-code-5">Sample Source Code #5</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue">continue</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while">while 중첩문</a></li>
 </ul>
 </li>
