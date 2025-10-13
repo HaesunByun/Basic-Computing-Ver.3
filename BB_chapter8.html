@@ -386,12 +386,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">변수의 유효범위(Variable Scope)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">지역변수</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">전역변수</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map">알아두면 유용한 map() 함수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">마무리</a></li>
 </ul>
             </nav>
         </div>
@@ -414,217 +410,88 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
-<li><p>지역변수와 전역변수에 대해 알아보자.</p></li>
+<li><p>알아두면 유용하게 활용할 수 있는 여러가지 함수를 소개한다.</p></li>
 </ul>
 </li>
 <li><p>기대효과</p>
 <ul>
-<li><p>자주 사용하는 기능을 함수로 만들어놓고 사용할 수 있다.</p></li>
+<li><p>유용한 함수를 활용하여 코드의 가독성이나 효율성을 높일 수 있다.</p></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="variable-scope">
-<h2>변수의 유효범위(Variable Scope)<a class="headerlink" href="#variable-scope" title="Permalink to this headline">#</a></h2>
+<div class="section" id="map">
+<h2>알아두면 유용한 map() 함수<a class="headerlink" href="#map" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>변수는 변수의 유효범위에 따라 <code class="docutils literal notranslate"><span class="pre">전역변수</span></code>와 <code class="docutils literal notranslate"><span class="pre">지역변수</span></code>로 나뉜다.</p></li>
-<li><p>변수의 유효범위는 변수의 수명 또는 변수가 영향을 미치는 범위를 의미한다.</p></li>
-<li><p>전역변수의 유효범위는 프로그램 전체이다.</p></li>
-<li><p>반면, 지역변수의 유효범위는 그 변수를 정의한 함수내에서만 유효하다. 즉, 함수가 호출되었을 때 생성되며 함수를 벗어나면 수명을 다한다.</p></li>
-<li><p>아래의 예를 통해 전역변수와 지역변수의 개념을 확실히 이해하도록 하자.</p></li>
+<li><p>map() 함수는 함수명과 반복가능한 데이터를 전달인자로 받아 함수에 의해 수행된 결과를 반환해주는 함수이다.</p></li>
+<li><p>이때 반환값은 map 객체이므로 list()나 tuple()로 변환하여 결과를 확인해야 한다.</p></li>
+<li><p>형식은 아래와 같다.</p></li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">map</span><span class="p">(</span><span class="n">함수명</span><span class="p">,</span> <span class="n">iterable</span> <span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>리스트의 아이템으로 ‘1’, ‘2’,’3’을 숫자로 변환하기 위해 map() 함수를 사용해보자.</p></li>
+<li><p>전달인자로 주는 함수명은 정수로 변환하는 int() 함수이다.</p></li>
+<li><p>이 때 int() 함수를 지금 호출하는 것이 아니라 전달인자로 전달하는 것이므로 <code class="docutils literal notranslate"><span class="pre">반드시</span> <span class="pre">괄호없이</span> <span class="pre">함수명</span> <span class="pre">int만</span> <span class="pre">써야한다</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>여러분들이 정의한 사용자 정의함수 또한 map()함수의 전달인자로 줄 수 있다.</p></li>
+<li><p>예를 들어 아래와 같이 wow()함수를 정의해보자. 여기서 정의한 wow()함수는 문자열을 입력받아 첫 글자만 대문자로 수정해주는 함수이다.</p></li>
+<li><p>즉 ‘hi’를 전달인자로 주면 ‘Hi’를 반환한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wow</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+  <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="k">return</span> <span class="n">text</span>
+<span class="n">wow</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hi&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>앞에서 정의한 wow()함수와 리스트변수 a를 map()의 전달인자로 사용해보자.</p></li>
+<li><p>리스트 a의 모든 아이템들이 첫 글자가 대문자로 변환 된것을 확인할 수 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">,</span> <span class="s1">&#39;wow&#39;</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">wow</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hello&#39;, &#39;Welcome&#39;, &#39;Fun&#39;, &#39;Wow&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="id1">
-<h3>지역변수<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>deposit() 함수와 withdraw() 함수를 정의하고, 각 함수 안에 변수 amount를 정의하였다.</p></li>
-<li><p>변수 amount는 지역변수이며 자신이 탄생한 함수 안에서는 유효하다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="mi">10000</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;deposit의 local scope: </span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">withdraw</span><span class="p">():</span>
-  <span class="n">amount2</span> <span class="o">=</span> <span class="mi">20000</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;withdraw의 local scope: </span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">deposit</span><span class="p">()</span>
-<span class="n">withdraw</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>deposit의 local scope: 10000
-withdraw의 local scope: 20000
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>하지만 지역변수 amount1, amount2는 그 변수가 정의된 함수 내에서만 유효하므로 전역에서는 amount1, amount2가 유효하지 않다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global scope: </span><span class="si">{</span><span class="n">amount1</span><span class="p">,</span><span class="w"> </span><span class="n">amount2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">9791</span><span class="n">c13b25f1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global scope: </span><span class="si">{</span><span class="n">amount1</span><span class="p">,</span><span class="w"> </span><span class="n">amount2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;amount1&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>또한 amount1는 deposit()의 지역변수이므로 withdraw() 함수에서는 amount1이 유효하지 않다. 이는 amount2도 마찬가지이다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="mi">10000</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;deposit의 local scope: </span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">withdraw</span><span class="p">():</span>
-  <span class="n">amount2</span> <span class="o">=</span> <span class="mi">20000</span>
-  <span class="n">deposit</span><span class="p">()</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;withdraw의 local scope: </span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">withdraw</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id2">
-<h3>전역변수<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>함수밖 Global scope에서 정의되어 있는 변수를 전역변수라 한다.</p></li>
-<li><p>전역변수는 유효범위가 프로그램 전체이므로 함수(또는 내부함수)에서도 전역변수 참조할 수 있다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount</span> <span class="o">=</span> <span class="mi">10000</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;deposit의 local scope: </span><span class="si">{</span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">balance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">balance</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="n">deposit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>함수내에서는 전역변수를 참조할 수는 있지만 권한 없이 수정할 수는 없다.</p></li>
-<li><p>아래 코드에서와 같이, 함수안에서 global 선언 없이 전역변수 수정을 시도하려 했다면 에러가 발생한다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount</span> <span class="o">=</span> <span class="mi">5000</span>
-  <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;deposit의 local scope: </span><span class="si">{</span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">balance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">balance</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="n">deposit</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>함수안에서 전역변수를 정의하거나 전역변수로 지정하려면 <code class="docutils literal notranslate"><span class="pre">global</span></code> 키워드를 쓴다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="k">global</span> <span class="n">balance</span>
-  <span class="n">balance</span> <span class="o">=</span> <span class="mi">100000</span>
-  <span class="n">balance</span> <span class="o">=</span> <span class="n">balance</span> <span class="o">+</span> <span class="mi">400</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;deposit local scope: </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">deposit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global scope: </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="k">global</span> <span class="n">balance</span>
-  <span class="n">amount</span> <span class="o">=</span> <span class="mi">5000</span>
-  <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;deposit의 local scope: </span><span class="si">{</span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">balance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">balance</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="n">deposit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global scope: </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;입금 함수&quot;&quot;&quot;</span>
-    <span class="k">global</span> <span class="n">balance</span>
-    <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">원이 입금되었습니다. 현재 잔액: </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">withdraw</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;출금 함수&quot;&quot;&quot;</span>
-    <span class="k">global</span> <span class="n">balance</span>
-    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">balance</span><span class="p">:</span>
-        <span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">원이 출금되었습니다. 현재 잔액: </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s2">원&quot;</span><span class="p">)</span>
-
-<span class="n">balance</span> <span class="o">=</span> <span class="mi">100000</span>
-<span class="n">deposit</span><span class="p">(</span><span class="mi">50000</span><span class="p">)</span>   <span class="c1"># 5만 원 입금</span>
-<span class="n">withdraw</span><span class="p">(</span><span class="mi">30000</span><span class="p">)</span>  <span class="c1"># 3만 원 출금</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>전역변수 이름과 지역변수 이름이 같으면 어떻게 될까?</p></li>
-<li><p>아래 코드 name = ‘유재석’에서 변수 name은 전역변수이다.</p></li>
-<li><p>전역변수는 유효범위가 프로그램 전체에서 유효하므로 func1() 함수안에서도 참조 가능하다.</p></li>
-<li><p>func2()의 경우는 어떨까? 전역변수 name이 있지만, func2()에서도 name=’유재석’과 같이 동일한 이름의 변수 name이 정의되어 있다. 이때에는 지역변수 name이 전역변수 name보다 우선 시 된다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func1의 local area: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
-  <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;유재석&#39;</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func2의 local area: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;유재석&#39;</span>
-<span class="n">func1</span><span class="p">()</span>
-<span class="n">func2</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global area: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>마무리<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>마무리<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>함수는 프로그램에서 자주 사용되는 소스코드를 만들어두고 필요할 때 사용하는 기능이다.</p></li>
-<li><p>전역변수의 유효범위는 프로그램 어디에서든 사용 가능하다.</p></li>
-<li><p>지역변수의 유효범위는 지역변수가 선언된 함수 내부에서만 사용 가능하다.</p></li>
-<li><p>전달인자는 함수 외부에서 내부로 값을 전달할 때 사용하며, 함수 호출 시 괄호 안에 기입한다.</p></li>
-<li><p>매개변수는 함수 정의에서 괄호 안에 기입된 변수를 뜻하며, 전달인자로부터 값을 전달 받아 함수 내부에서 사용된다.</p></li>
-<li><p>return은 함수의 결과를 함수 외부로 반환할 때 사용하는 키워드이다.</p></li>
+<li><p>파이썬의 내장 함수를 활용하여 다양한 기능을 구현할 수 있다.</p></li>
 </ul>
 <hr class="docutils" />
 <font color='Grey' size="4">
@@ -694,12 +561,8 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">변수의 유효범위(Variable Scope)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">지역변수</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">전역변수</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map">알아두면 유용한 map() 함수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">마무리</a></li>
 </ul>
   </nav></div>
 
