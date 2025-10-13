@@ -809,11 +809,11 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">withdraw</span><span class="p">():</span>
-  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">원이 출금되었습니다.&#39;</span><span class="p">)</span>
 
 <span class="n">deposit</span><span class="p">()</span>
@@ -838,12 +838,12 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">withdraw</span><span class="p">():</span>
-  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">원이 출금되었습니다.&#39;</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -864,7 +864,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
   <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount1</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
@@ -885,7 +885,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 입금</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
   <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount1</span>
@@ -906,7 +906,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 입금</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
   <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount1</span>
@@ -937,7 +937,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 입금</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">)</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 잔액 변화</span>
@@ -1110,3 +1110,4 @@ By hs Byun
   </body>
 
 </html>
+
