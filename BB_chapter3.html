@@ -198,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter5.html">Chapter 5. 리스트</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter6.html">Chapter 6. 딕셔너리, 튜플, 셋</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter7.html">Chapter 7. 함수의 기본</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BB_chapter8.html">Chapter 8. 함수의 활용</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BB_chapter8.html">중간고사</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="nav bd-sidenav">
@@ -390,6 +390,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-source-code-1">Sample Source Code #1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">비교연산자</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">멤버연산자</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">문자열 인덱싱(Indexing)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-index">양의 인덱스(positive index)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-index">음의 인덱스(negative index)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">문자열 슬라이싱(Slicing)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">논리 연산자</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">if statements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if">if 문</a></li>
@@ -427,7 +433,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li><p>프로그래밍의 제어 구조를 알아보자.</p></li>
 <li><p>조건문의 개념을 이해하자.</p></li>
 <li><p>들여쓰기의 중요성을 이해하자.</p></li>
-<li><p>비교연산자, 논리연산자를 알아보자.</p></li>
+<li><p>비교연산자, 멤버연산자, 논리연산자를 알아보자.</p></li>
 <li><p>모듈을 불러와보고 난수에 대해 알아보자.</p></li>
 </ul>
 </li>
@@ -455,25 +461,25 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a guess the number game.</span>
 <span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Hello! What is your name? &#39;</span><span class="p">)</span>
 <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
 
 <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Take a guess.&#39;</span><span class="p">))</span>
 
 <span class="k">if</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">number</span><span class="p">:</span>
-  <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Your guess is wrong.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your guess is wrong.&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
-  <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Good job, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;! You guessed my number!&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Good job, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;! You guessed my number!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">7</span><span class="n">dfd609a41e6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">07715</span><span class="n">c7e3c4b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># This is a guess the number game.</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Hello! What is your name? &#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> 
 
 <span class="nn">D:\users\anaconda3\lib\site-packages\ipykernel\kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
@@ -672,6 +678,69 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </div>
 <p>문제. 단어를 입력받아 입력받은 단어에 알파벳 ‘a’가 있으면 True가 없으면 False가 출력되도록 하시오.</p>
 </div>
+<div class="section" id="indexing">
+<h2>문자열 인덱싱(Indexing)<a class="headerlink" href="#indexing" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>인덱스</strong>는 묶음데이터에서의 각 아이템의 위치를 가리키는 번호이다. 문자열에서 아이템은 한 글자이다. 즉, 한 글자에 접근하기 위해 인덱스를 사용한다.</p></li>
+</ul>
+<div class="section" id="positive-index">
+<h3>양의 인덱스(positive index)<a class="headerlink" href="#positive-index" title="Permalink to this headline">#</a></h3>
+<p>positive index는 가장 왼쪽 아이템에서 0부터 시작하여 오른쪽으로 1씩 증가한다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="negative-index">
+<h3>음의 인덱스(negative index)<a class="headerlink" href="#negative-index" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>negative index는 가장 오른쪽 끝 아이템에서 -1부터 시작하여 왼쪽으로 1씩 감소한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="slicing">
+<h2>문자열 슬라이싱(Slicing)<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h2>
+<p>슬라이싱이란 원하는 범위의 데이터를 지정해 추출하는 것이다. 형식은 다음과 같다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">문자열</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>start: 슬라이싱 시작 인덱스</p></li>
+<li><p>end: 슬라이싱 끝 인덱스(끝 인덱스는 미포함)</p></li>
+<li><p>step: 이동간격, 양수이면 오른쪽으로 step만큼 이동한다. 음수이면 왼쪽으로 step만큼 이동한다.</p></li>
+<li><p>start, end, step 모두 생략 가능하다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;Life is too short, You need Python&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span> <span class="p">:</span><span class="mi">7</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span> <span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span> <span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:</span> <span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>문제. 단어를 입력받아 입력받은 단어에 알파벳 첫글자가 ‘a’이면  True, 아니면 False가 출력되도록 하시오.</p>
+</div>
 <div class="section" id="id4">
 <h2>논리 연산자<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>한개 또는 두개 이상의 조건을 비교하여 논리적인 결과를 얻고자 할때 사용한다. 논리연산자의 결과는 항상 True 또는 False로 나온다.(조건이 데이터타입 자체인 경우 제외, ex, ‘hello’ or 1, 2 and 3, [1,2,3] or 2)</p>
@@ -763,17 +832,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </div>
 </div>
 </div>
-<p>문제. 성별과 이름을 입력받아 성별이 ‘남자’이면서 성이 ‘김’이면 True를 출력하시오.
-hint: 예를들어, 이름이 ‘김이지’일때
-성이 ‘김’인지를 확인하려면 아래와 같이 작성할 수 있다.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;김이지&#39;</span>
-<span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>문제. 성별과 이름을 입력받아 성별이 ‘남자’이면서 성이 ‘김’이면 True를 출력하시오.</p>
 <div class="warning admonition">
 <p class="admonition-title">여러개의 논리 연산자 표현시  주의</p>
 <p>‘국어(kor), 수학(mat), 컴기(com) 점수가 80점 이상이거나’를 코드로 표현할 때
@@ -782,20 +841,14 @@ hint: 예를들어, 이름이 ‘김이지’일때
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kor</span> <span class="o">=</span> <span class="mi">70</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">com</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="k">if</span> <span class="n">kor</span> <span class="ow">or</span> <span class="n">mat</span> <span class="ow">or</span> <span class="n">com</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">kor</span> <span class="ow">or</span> <span class="n">mat</span> <span class="ow">or</span> <span class="n">com</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><font color='red'> 올바른 표현식</font></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">kor</span> <span class="o">=</span> <span class="mi">70</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">com</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">kor</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">mat</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">com</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">kor</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">mat</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">com</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -804,10 +857,7 @@ hint: 예를들어, 이름이 ‘김이지’일때
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kor</span> <span class="o">=</span> <span class="mi">70</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="mi">60</span>
 <span class="n">com</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">kor</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">mat</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">com</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">kor</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">mat</span><span class="o">&gt;=</span><span class="mi">80</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">com</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -949,21 +999,21 @@ Pass!
 <li><p>중첩 if ~ else문 대신에 다중 if문(if ~ elif ~ elif ~ else)으로 코드를 간결화 할 수 있다.</p></li>
 <li><p>다중 if문은 조건식이 True인 조건을 만날 때 까지 비교하면서 내려온다.</p></li>
 <li><p>조건식이 True인 조건을 만나면 그 조건에 해당하는 실행문장을 실행한 후, 다음 elif문의 조건을 비교하지 않고 다중 if문 전체를 벗어난다.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">else:</span></code>없이 <code class="docutils literal notranslate"><span class="pre">elif</span> <span class="pre">조건:</span></code>으로 끝날 수도 있으나 일부 컴파일러에서는 에러로 인식하기도 한다.</p></li>
+<li><p>else: 없이 elif 조건:으로 끝날 수도 있으며, 파이썬에서는 전혀 문제되지 않는다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">75</span>
 <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;A입니다.&#39;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A입니다.&#39;</span> <span class="p">)</span>
 <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="p">:</span>    <span class="c1"># score&lt;=89 and score &gt;=80 이렇게 작성할 필요가 없음</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;B입니다.&#39;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B입니다.&#39;</span> <span class="p">)</span>
 <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span> <span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;C입니다.&#39;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C입니다.&#39;</span> <span class="p">)</span>
 <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;D입니다.&#39;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;D입니다.&#39;</span> <span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;F입니다.&#39;</span> <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;F입니다.&#39;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -983,9 +1033,9 @@ Pass!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">85</span>
 <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">75</span><span class="p">:</span>
-  <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;같다.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;같다.&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">:</span>
-  <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;크다.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;크다.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;작다.&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1007,10 +1057,10 @@ Pass!
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">90</span>
 <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span> <span class="p">:</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;합격입니다.&#39;</span><span class="p">)</span>
- <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;A 등급입니다.&#39;</span><span class="p">)</span>  
-    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;장학금도 받을 수 있습니다.&#39;</span><span class="p">)</span>      
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;효도하시는군요!&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;합격입니다.&#39;</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A 등급입니다.&#39;</span><span class="p">)</span>  
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;장학금도 받을 수 있습니다.&#39;</span><span class="p">)</span>      
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;효도하시는군요!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -1020,12 +1070,12 @@ Pass!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">score</span> <span class="o">=</span> <span class="mi">80</span>
 <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span> <span class="p">:</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;합격입니다.&#39;</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;A 등급입니다.&#39;</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;장학금도 받을 수 있습니다.&#39;</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;효도하시는군요!&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;합격입니다.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A 등급입니다.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;장학금도 받을 수 있습니다.&#39;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;효도하시는군요!&#39;</span><span class="p">)</span>
 <span class="k">else</span> <span class="p">:</span>
-       <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;다음학기를 노려보세요.&#39;</span><span class="p">)</span>
+       <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;다음학기를 노려보세요.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1071,14 +1121,14 @@ Pass!
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a guess the number game.</span>
 <span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Hello! What is your name?&#39;</span><span class="p">)</span>
 <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
 
 <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Take a guess.&#39;</span><span class="p">))</span>
 
 <span class="k">if</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">number</span><span class="p">:</span>
- <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Your guess is wrong.&#39;</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Your guess is wrong.&#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">number</span><span class="p">:</span>
- <span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Good job, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;! You guessed my number!&#39;</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Good job, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;! You guessed my number!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1160,7 +1210,7 @@ Pass!
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is a guess the number game.</span>
 <span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Hello! What is your name?&#39;</span><span class="p">)</span>
 <span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="nb">print</span> <span class="p">(</span> <span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Well, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;, I am thinking of a number between 1 and 20.&#39;</span><span class="p">)</span>
 
 <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Take a guess.&#39;</span><span class="p">))</span>
 
@@ -1259,6 +1309,12 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-source-code-1">Sample Source Code #1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">비교연산자</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">멤버연산자</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">문자열 인덱싱(Indexing)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positive-index">양의 인덱스(positive index)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-index">음의 인덱스(negative index)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">문자열 슬라이싱(Slicing)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">논리 연산자</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">if statements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if">if 문</a></li>

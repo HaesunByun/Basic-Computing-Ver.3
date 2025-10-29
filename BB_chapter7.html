@@ -96,7 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'BB_chapter7';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 8. 함수의 활용" href="BB_chapter8.html" />
+    <link rel="next" title="중간고사" href="BB_chapter8.html" />
     <link rel="prev" title="Chapter 6. 딕셔너리, 튜플, 셋" href="BB_chapter6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -198,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter5.html">Chapter 5. 리스트</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter6.html">Chapter 6. 딕셔너리, 튜플, 셋</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 7. 함수의 기본</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BB_chapter8.html">Chapter 8. 함수의 활용</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BB_chapter8.html">중간고사</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="nav bd-sidenav">
@@ -668,6 +668,26 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">f5ec049b19ec</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">order_dessert</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Order dessert: &#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dessert</span><span class="p">(</span><span class="s2">&quot;초코&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;바닐라&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">order_dessert</span><span class="p">)</span><span class="si">}</span><span class="s1">, 받았습니다.&#39;</span><span class="p">)</span>
+
+<span class="nn">D:\users\anaconda3\lib\site-packages\ipykernel\kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">854</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">855</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+</pre></div>
+</div>
+</div>
+</div>
 <ul class="simple">
 <li><p>함수로부터 반환 받은 값을 위에서와 같이 바로 출력할 수도 있지만, 아래와 같이 변수에 저장할 수도 있다.</p></li>
 </ul>
@@ -809,11 +829,11 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">withdraw</span><span class="p">():</span>
-  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">원이 출금되었습니다.&#39;</span><span class="p">)</span>
 
 <span class="n">deposit</span><span class="p">()</span>
@@ -838,12 +858,12 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">withdraw</span><span class="p">():</span>
-  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;출금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount2</span><span class="si">}</span><span class="s1">원이 출금되었습니다.&#39;</span><span class="p">)</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -864,10 +884,8 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deposit</span><span class="p">():</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
-  <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount1</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
 <span class="n">balance</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="n">deposit</span><span class="p">()</span>
@@ -876,8 +894,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </div>
 </div>
 <ul class="simple">
-<li><p>함수내에서는 전역변수를 참조할 수는 있지만 권한 없이 수정할 수는 없다.</p></li>
-<li><p>아래 코드에서와 같이, 함수안에서 global 선언 없이 전역변수 수정을 시도하려 했다면 에러가 발생한다.</p></li>
+<li><p>그러나, 아래 코드에서와 같이, 함수안에서 전역변수 수정을 시도하려 했다면 에러가 발생한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -885,7 +902,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 입금</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
   <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount1</span>
@@ -906,7 +923,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 입금</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
   <span class="n">balance</span> <span class="o">+=</span> <span class="n">amount1</span>
@@ -926,7 +943,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li><p>global 변수를 사용하면 함수가 외부 상태를 바꾸게 되므로,</p>
 <ul>
 <li><p>함수의 동작이 외부 변수에 의존하게 되고</p></li>
-<li><p>외부 변수의 상태가 언제, 어디서, 왜 바뀌는지 추적하기 어려워집</p></li>
+<li><p>외부 변수의 상태가 언제, 어디서, 왜 바뀌는지 추적하기 어려워진다.</p></li>
 </ul>
 </li>
 </ul>
@@ -937,7 +954,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;현재 잔액은 </span><span class="si">{</span><span class="n">balance</span><span class="si">}</span><span class="s1">원입니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 입금</span>
-  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int(input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
+  <span class="n">amount1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;입금액: &#39;</span><span class="p">))</span>
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">amount1</span><span class="si">}</span><span class="s1">원이 입금되었습니다.&#39;</span><span class="p">)</span>
 
   <span class="c1"># 잔액 변화</span>
@@ -1018,7 +1035,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Chapter 8. 함수의 활용</p>
+        <p class="prev-next-title">중간고사</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1108,6 +1125,4 @@ By hs Byun
   <footer class="bd-footer">
   </footer>
   </body>
-
 </html>
-

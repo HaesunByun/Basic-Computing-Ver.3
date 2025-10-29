@@ -198,7 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 5. 리스트</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter6.html">Chapter 6. 딕셔너리, 튜플, 셋</a></li>
 <li class="toctree-l1"><a class="reference internal" href="BB_chapter7.html">Chapter 7. 함수의 기본</a></li>
-<li class="toctree-l1"><a class="reference internal" href="BB_chapter8.html">Chapter 8. 함수의 활용</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BB_chapter8.html">중간고사</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="nav bd-sidenav">
@@ -680,6 +680,22 @@ banana
 </div>
 </div>
 </div>
+<p>😄 다음과 같은 중첩 리스트가 있다. Output Result와 같이, 중첩 리스트에서 값을 인덱싱하는 파이썬 코드를 작성하시오. 정답은 반드시 data 리스트를 직접 인덱싱하여 구해야 하며, 정답 숫자를 하드코딩해서는 안 된다. data에서 숫자 10을 꺼내라.</p>
+<p>Output Result</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">11</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">]]]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="negative-index">
 <h3>음의 인덱스(negative index)<a class="headerlink" href="#negative-index" title="Permalink to this headline">#</a></h3>
@@ -872,6 +888,31 @@ thon
 </div>
 </div>
 </div>
+<p>😄 문자열을 입력받아 짝수 번째 문자열을 이어붙인 문자열을 출력하는 프로그램을 작성하시오.</p>
+<ul class="simple">
+<li><p>제한사항
+3&lt;= 문자열 길이 &lt;= 1000</p></li>
+</ul>
+<p><font color='blue'><code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">case-1</span></code></font></p>
+<p>Input Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ABabC</span>
+</pre></div>
+</div>
+<p>Output Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span>
+<span class="n">Output</span><span class="p">:</span> <span class="n">Bb</span>
+</pre></div>
+</div>
+<p><font color='blue'><code class="docutils literal notranslate"><span class="pre">Test</span> <span class="pre">case-2</span></code></font></p>
+<p>Input Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Seoul</span> <span class="n">National</span> <span class="n">University</span>
+</pre></div>
+</div>
+<p>Output Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span>
+<span class="n">Output</span><span class="p">:</span> <span class="n">eu</span> <span class="n">ainlUiest</span>
+</pre></div>
+</div>
 <div class="tip admonition">
 <p class="admonition-title">아이템 개수 확인 len() 함수  </p>
 <ul class="simple">
@@ -886,7 +927,7 @@ thon
 <p>😄 리스트변수 wordlist에 있는 아이템들 가운데 첫 글자가 ‘s’로 시작하는 아이템들을 출력하시오.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;turtle&#39;</span><span class="p">,</span> <span class="s1">&#39;arrow&#39;</span><span class="p">,</span> <span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="s1">&#39;diamond&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>\
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wordlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;turtle&#39;</span><span class="p">,</span> <span class="s1">&#39;arrow&#39;</span><span class="p">,</span> <span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="s1">&#39;diamond&#39;</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span>\
         <span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;morning&#39;</span><span class="p">,</span> <span class="s1">&#39;student&#39;</span><span class="p">,</span> <span class="s1">&#39;sky&#39;</span><span class="p">,</span> <span class="s1">&#39;seoul&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">,</span>\
         <span class="s1">&#39;heart&#39;</span><span class="p">,</span> <span class="s1">&#39;newjeans&#39;</span><span class="p">]</span>
 </pre></div>
@@ -955,7 +996,7 @@ thon
 <td class="text-left"><p>b=a.copy() ➡ b= [‘a’,’b’,’c’]</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list.sort()</span></code></p></td>
-<td class="text-left"><p>list 내 item를 오름차순으로 정렬, reverse 옵션을 통해 내림차순 정렬 가능</p></td>
+<td class="text-left"><p>list 내 item를 오름차순으로 정렬</p></td>
 <td class="text-left"><p>a = [‘c’,’a’,’b’]일 때, a.sort() ➡ [‘a’, ‘b’, ‘c’]</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">list2</span> <span class="pre">=</span> <span class="pre">sorted(list)</span></code></p></td>
@@ -1193,9 +1234,6 @@ Input Sample</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 1, 2, 3, 1, 2, 3]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -1208,16 +1246,18 @@ Input Sample</p>
 <li><p>split( ) 함수는 문자열을 분리하여 리스트를 생성한다.</p></li>
 <li><p>range( )함수는 규칙적인 숫자열로 구성된 리스트를 생성한다.</p></li>
 <li><p>리스트에 아이템 추가는 객체명.append( )를 활용한다.</p></li>
-<li><p>리스트에 리스트 추가는 객체명.extend( )를 활용한다.</p></li>
-<li><p>리스트에 아이템을 삽입은 객체명.insert( )를 활용한다.</p></li>
+<li><p>리스트에 리스트 확장은 객체명.extend( )를 활용한다.</p></li>
+<li><p>리스트에 아이템 삽입은 객체명.insert( )를 활용한다.</p></li>
 <li><p>리스트에서 첫번째로 나오는 아이템 제거는 객체명.remove( )를 활용한다.</p></li>
 <li><p>아이템의 인덱스 번호를 검색할 때에는 객체명.index( )를 활용한다.</p></li>
 <li><p>리스트의 아이템 정렬은 sort()와 sorted()를 활용한다.</p></li>
 </ul>
 <hr class="docutils" />
 <font color='Grey' size="4">
-F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computing)</font> 서울대학교 학부대학 변해선
+F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computing)</font>
 <hr class="docutils" />
+<p>서울대학교 학부대학<br>
+교수 변해선</p>
 </div>
 </div>
 
@@ -1357,6 +1397,4 @@ By hs Byun
   <footer class="bd-footer">
   </footer>
   </body>
-
 </html>
-
