@@ -394,10 +394,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3-D array(텐서) 생성하기</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy의 응용</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization-operation">Vectorization operation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy의 응용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization-operation">Vectorization operation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">배열과 리스트의 비교</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">인덱싱</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">슬라이싱</a></li>
@@ -413,13 +411,13 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">배열의 유용한 함수들II</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where">where()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column-stack">column_stack()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max">min(), max()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-mean-median">sum(), mean(), median()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argmin-argmax">argmin(), argmax()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-mean-median">sum(), mean(), median()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#var-std">var(), std()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unique">unique()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">abs()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-cos">sin(), cos()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot">dot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#savetxt-loadtxt">파일저장 savetxt() , 읽어오기 loadtxt</a></li>
 </ul>
@@ -566,7 +564,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </div>
 </div>
 </div>
-<p>😄3차원 배열 생성하기1</p>
+<p>😄3차원 배열 생성하기</p>
 <p>다음과 같은 배열을 생성하시오.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[[</span><span class="mi">100</span>  <span class="mi">90</span>  <span class="mi">80</span><span class="p">]</span>
   <span class="p">[</span> <span class="mi">70</span>  <span class="mi">60</span>  <span class="mi">50</span><span class="p">]]</span>
@@ -577,25 +575,6 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
  <span class="p">[[</span> <span class="mi">11</span>  <span class="mi">22</span>  <span class="mi">33</span><span class="p">]</span>
   <span class="p">[</span> <span class="mi">44</span>  <span class="mi">55</span>  <span class="mi">66</span><span class="p">]]]</span>
 </pre></div>
-</div>
-<ul class="simple">
-<li><p>3차원 배열의 열의 개수는 <code class="docutils literal notranslate"><span class="pre">len(배열명[면인덱스,행인덱스])</span></code>로 확인할 수 있다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;number of pages: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ar3</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;number of rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ar3</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;number of columns: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">ar3</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>number of pages: 2
-number of rows: 2
-number of columns: 3
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>배열의 구성, 차수 등의 정보를 확인하기 위해서는 다음과 같은 변수를 쓸 수 있다.</p></li>
@@ -662,8 +641,9 @@ number of columns: 3
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="vectorization-operation">
-<h3>Vectorization operation<a class="headerlink" href="#vectorization-operation" title="Permalink to this headline">#</a></h3>
+<h2>Vectorization operation<a class="headerlink" href="#vectorization-operation" title="Permalink to this headline">#</a></h2>
 <p>1차원으로 묶은 수를 수학에서 벡터(vector)라고 한다.
 벡터연산은 벡터의 동일 인덱스에 위치한 원소들끼리 연산을 수행하는 기능이다.
 numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터연산을 지원한다.</p>
@@ -692,6 +672,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 <ul class="simple">
 <li><p>행렬끼리 연산할때 크기가 다른 경우 이를 자동으로 확대해 주는 기능을 브로드캐스팅이라고 한다.</p></li>
+<li><p>즉, 두 배열의 모양이 다를 때, 작은 배열의 차원을 자동으로 늘려서 큰 배열과 맞춘 뒤 연산해준다.</p></li>
 </ul>
 <div align="center"><img src="https://haesunbyun.github.io/common/images/broadcasting.png" style="width:400px;"></div><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -791,7 +772,6 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="id3">
 <h2>배열과 리스트의 비교<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
@@ -870,10 +850,10 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <li><p>리스트와 배열의 메서드</p>
 <ul>
 <li><p>리스트와 배열은 자료형이 다르므로 지원하는 메서드의 종류도 다르다.</p></li>
-<li><p>예를 들어, 리스트에서는 mean, argmax, round 등의 메소드를 지원하지 않는다. 그 이유는 리스트에는 다양한 자료형을 저장할 수 있는데 예를 들어, 문자열의 평균, 최대값, 소수점 처리를 할 수 없기 때문이다.</p>
+<li><p>예를 들어, 리스트에서는 mean, argmax, round 등의 메소드를 지원하지 않는다. 그 이유는 리스트에는 다양한 자료형을 저장할 수 있는데 예를 들어, 문자열의 평균, 최댓값, 소수점 처리를 할 수 없기 때문이다.</p>
 <ul>
 <li><p>mean: 평균</p></li>
-<li><p>argmax: 최대값 인덱스</p></li>
+<li><p>argmax: 최댓값 인덱스</p></li>
 <li><p>round: 숫자를 지정한 자리수로 반올림</p></li>
 <li><p>…</p></li>
 </ul>
@@ -1078,8 +1058,8 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.93432868 0.88185853 0.17129836 0.5365247  0.43398094]
- [0.18735239 0.47892444 0.60067371 0.43155333 0.82103819]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.88890769 0.51143429 0.61791567 0.92002254 0.53936553]
+ [0.37061313 0.04275031 0.68025905 0.88263387 0.6792356 ]]
 </pre></div>
 </div>
 </div>
@@ -1091,9 +1071,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.88337738 3.64139891]
- [3.55379193 3.6244929 ]
- [3.54888313 3.78887537]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.85264176 3.80483267]
+ [3.92970749 3.66426214]
+ [3.81421581 3.96043566]]
 </pre></div>
 </div>
 </div>
@@ -1105,13 +1085,13 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 4  1 -2 -1]
-  [ 4  4 -5  3]
-  [-2  2  0  3]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 0 -5 -2 -4]
+  [ 0 -1  3 -1]
+  [-5 -5 -4 -5]]
 
- [[-2 -5 -3 -4]
-  [ 4 -1 -3  2]
-  [-4 -3  2 -4]]]
+ [[-3 -3 -1 -3]
+  [-1 -4 -3  3]
+  [ 3  4  2  1]]]
 </pre></div>
 </div>
 </div>
@@ -1135,31 +1115,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6c6de17bf926b5ef01864e91ce1a3df27b3c1bc6c19a3c01713854c7acd7d069.png" src="_images/6c6de17bf926b5ef01864e91ce1a3df27b3c1bc6c19a3c01713854c7acd7d069.png" />
-</div>
-</div>
-<ul class="simple">
-<li><p>2차원 배열 rd_num의 0행부터 9행까지의 배열을 확인해보자.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">rd_num</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[88 12]
- [40 51]
- [ 1 13]
- [69 49]
- [16 95]
- [40 27]
- [98  0]
- [74 44]
- [28 53]
- [ 9 92]]
-</pre></div>
-</div>
+<img alt="_images/2dc5c4fb892db65160d1f47855494df1a080d5c80d35a8bbe54f8df326390330.png" src="_images/2dc5c4fb892db65160d1f47855494df1a080d5c80d35a8bbe54f8df326390330.png" />
 </div>
 </div>
 </div>
@@ -1188,7 +1144,11 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">700000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd_num</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">700000</span><span class="p">,(</span><span class="mi">25</span><span class="p">,))</span>
+<span class="n">rd_num1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">2000</span><span class="p">,(</span><span class="mi">25</span><span class="p">,))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rd_num</span><span class="p">,</span> <span class="n">rd_num1</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">700000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0012</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">700</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1196,7 +1156,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b1ecc1417f80568e03192126b2b7778dfdc4017a44f92c173927850c494f3d3d.png" src="_images/b1ecc1417f80568e03192126b2b7778dfdc4017a44f92c173927850c494f3d3d.png" />
+<img alt="_images/25a6421de182dec8fe86fba5f2e79e1e09e6038dbae1604a364a6a127a510c66.png" src="_images/25a6421de182dec8fe86fba5f2e79e1e09e6038dbae1604a364a6a127a510c66.png" />
 </div>
 </div>
 </div>
@@ -1257,21 +1217,47 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 문자열 배열 (성별 데이터)</span>
+<span class="n">gender</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;남자&#39;</span><span class="p">,</span> <span class="s1">&#39;여자&#39;</span><span class="p">,</span> <span class="s1">&#39;남자&#39;</span><span class="p">,</span> <span class="s1">&#39;여자&#39;</span><span class="p">,</span> <span class="s1">&#39;남자&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0)) # index 반환
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="k">2</span>==0, &quot;짝수&quot;, &quot;홀수&quot;))
+<span class="n">gender_numeric</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;남자&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gender_numeric</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0 1 2 3 4 5 6 7 8 9]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;남자&#39; &#39;여자&#39; &#39;남자&#39; &#39;여자&#39; &#39;남자&#39;]
 
 
 ===결과===
-(array([0, 2, 4, 6, 8], dtype=int64),)
-[&#39;짝수&#39; &#39;홀수&#39; &#39;짝수&#39; &#39;홀수&#39; &#39;짝수&#39; &#39;홀수&#39; &#39;짝수&#39; &#39;홀수&#39; &#39;짝수&#39; &#39;홀수&#39;]
+[0 1 0 1 0]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="column-stack">
+<h3>column_stack()<a class="headerlink" href="#column-stack" title="Permalink to this headline">#</a></h3>
+<p>np.column_stack(): 1차원 배열 여러 개를 열 단위로 합쳐서 2차원 배열로 만들어 준다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 점수 배열 (예: 시험 점수)</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">88</span><span class="p">])</span>
+
+<span class="c1"># 열 방향으로 합치기 (1차원 → 2차원 변환)</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">gender_numeric</span><span class="p">,</span> <span class="n">scores</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0 85]
+ [ 1 90]
+ [ 0 78]
+ [ 1 92]
+ [ 0 88]]
 </pre></div>
 </div>
 </div>
@@ -1280,35 +1266,55 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <div class="section" id="min-max">
 <h3>min(), max()<a class="headerlink" href="#min-max" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>np.min(): 최소값을 반환한다.</p></li>
-<li><p>np.max(): 최대값을 반환한다.</p></li>
+<li><p>np.min(): 최솟값을 반환한다.</p></li>
+<li><p>np.max(): 최댓값을 반환한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 최소값, 최대값, 최소값 인덱스, 최대값 인덱스</span>
-<span class="n">ar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 최솟값, 최댓값</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ar</span><span class="p">[:</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[8.45104153e-01 7.63355517e-01 2.75456828e-01 5.28341810e-01]
-  [5.95080414e-01 7.98912454e-01 4.69903203e-01 2.77762622e-01]]
-
- [[3.91487691e-04 6.29567021e-01 6.40436985e-01 2.55313154e-01]
-  [8.08472513e-01 9.43569487e-02 1.18025954e-01 5.40367605e-01]]]
-
-
-===결과===
-0.00039148769138386275
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0 85]
+ [ 1 90]
+ [ 0 78]
+ [ 1 92]
+ [ 0 88]]
 
 
 ===결과===
-0.8451041531711765
+78
+
+
+===결과===
+92
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="argmin-argmax">
+<h3>argmin(), argmax()<a class="headerlink" href="#argmin-argmax" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>argmin(): 최솟값 인덱스를 반환한다.</p></li>
+<li><p>argmax(): 최댓값 인덱스를 반환한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
 </pre></div>
 </div>
 </div>
@@ -1322,19 +1328,41 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <li><p>np.median(배열명): 중간값을 반환한다.
 이 때 옵션 axis를 통해 결과를 구하고자 하는 축을 명시해 줄 수 있다.</p>
 <ul>
-<li><p>axis=0: 행</p></li>
-<li><p>axis=1: 열</p></li>
+<li><p>axis=0: 행을 따라 집계(세로 방향)</p></li>
+<li><p>axis=1: 열을 따라 집계(가로 방향)</p></li>
 </ul>
 </li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">combined</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0 85]
+ [ 1 90]
+ [ 0 78]
+ [ 1 92]
+ [ 0 88]]
+
+
+===결과===
+433
+86.6
+88.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -1345,35 +1373,11 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  3  5  7  9]
  [11 13 15 17 19]
  [21 23 25 27 29]]
-225
-15.0
-15.0
 
 
 ===결과===
 [33 39 45 51 57]
 [ 25  75 125]
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="argmin-argmax">
-<h3>argmin(), argmax()<a class="headerlink" href="#argmin-argmax" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>argmin(): 최소값 인덱스를 반환한다.</p></li>
-<li><p>argmax(): 최대값 인덱스를 반환한다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-14
 </pre></div>
 </div>
 </div>
@@ -1408,25 +1412,25 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[83.50423719 88.45350276 95.64343274 42.12789428 74.3355955  87.80968036
- 38.27577073 16.91376085 78.60567606 70.19380412 54.0049228  86.3821866
- 11.9687931  62.07467679 20.5647193  97.28987822 78.16051252 77.52191668
-  2.47414537 62.18080124 98.35302355 82.62802388 77.81878491 88.64768624
-  7.70419676 53.1830534  48.2782376  13.49139875 20.56028717 66.38938461
- 55.54474131  3.92218542 51.11951651 91.82879617  4.80778614 38.10158364
- 61.74248053 47.15895876 60.71607622 69.20327691 24.30355217 32.60499505
- 34.61653202 40.23809564 22.32036844 29.86611469 30.26622955 24.45147197
- 11.90420039 96.84669451 55.71124302 58.32356951 51.36468905 22.72208539
- 39.85733559 42.43213486 22.5627419  72.53494862 30.69558785 23.93036438
- 56.61065948 81.7320184  26.44797872 45.01362358  8.63962981  7.46160931
- 51.81940092 12.69373547 30.55088864 63.84961891 30.44957698 37.58971218
- 14.96272717 38.39762866 92.38075423 14.08010353 29.2153717  50.83586774
- 11.70517982  7.21805935]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[61.15443276  5.1916588   2.69980104 57.36662744 98.28507116 16.32277576
+ 92.23525961 57.97153464 13.54341839 88.36196388 24.23658132 73.37069464
+ 14.89501213 78.42120069 70.1854252  89.92380907 68.28570372 22.4513462
+ 58.2135244  51.05532001 32.46167077 86.26659832 81.24239442 55.93199192
+ 79.91760531 56.88564624 14.45909547 96.32432359 79.29156732 73.33342076
+ 38.50709661 97.3920509  10.50657443 46.36477415 59.29510415 31.5001885
+ 76.51506906 43.87484924 29.3975596  94.18291917 56.3952613  67.87816564
+ 24.79055244 79.3396185  80.78986427 35.85312994 73.98010667  3.97786957
+ 68.32476898 98.91751437 49.05207953 95.65614865 88.60736896 53.8800092
+ 94.59694038 36.97851437 44.10701109 40.93317322 72.20910665 20.76389662
+ 64.89879313 23.84995655 66.16617994 77.20294221  8.85210127 87.61857474
+  9.80089984 61.77656335 56.11413921 24.98175278 98.52178736 37.96447809
+ 88.98820493 94.86694728 76.85694418 54.74857887 69.60643049 80.87165221
+ 73.21420396 12.57258197]
 
 
 ===결과===
-767.4290715913608
-27.702510203794905
+796.1964635698172
+28.21695347782636
 </pre></div>
 </div>
 </div>
@@ -1447,12 +1451,12 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[  1   7   8   3  -4]
- [  9 -10  -9  -2   9]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -6  -6  -6   7   6]
+ [  5   3 -10   9  -8]]
 
 
 ===결과===
-[-10  -9  -4  -2   1   3   7   8   9]
+[-10  -8  -6   3   5   6   7   9]
 </pre></div>
 </div>
 </div>
@@ -1473,36 +1477,15 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4 -3  4  7 -3]
- [-5 -1 -6 -1  8]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  2 -4  8  6]
+ [-9  9 -1 -7  0]]
 
 
 ===결과===
-[[4 3 4 7 3]
- [5 1 6 1 8]]
+[[1 2 4 8 6]
+ [9 9 1 7 0]]
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="sin-cos">
-<h3>sin(), cos()<a class="headerlink" href="#sin-cos" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>np.sin(): sin 값을 구한다.</p></li>
-<li><p>np.cos(): cos 값을 구한다.</p></li>
-<li><p>아래는 sin() 함수와 cos() 함수를 이용하여 그린 다중그래프이다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/4e826b65dd43bfec2d72b51bcd937cda4ec57ab87e86008d8118c102a9d6d93d.png" src="_images/4e826b65dd43bfec2d72b51bcd937cda4ec57ab87e86008d8118c102a9d6d93d.png" />
 </div>
 </div>
 </div>
@@ -1782,9 +1765,7 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Copy Data=============
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>리스트: [1, 2, 3, [10, 20, 30]]
+리스트: [1, 2, 3, [10, 20, 30]]
 딕셔너리: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 20, 30]}
 집합: {1, 2, 3, (10, 20, 30)}
 배열: [[ 1  2  3]
@@ -1856,7 +1837,9 @@ Copy Data 수정 후 copy data=============
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-False
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 False
 False
 </pre></div>
@@ -1951,7 +1934,8 @@ False
 <ul class="simple">
 <li><p>데이터를 저장할 때에는 어떠한 자료구조에 저장할 것인지를 먼저 생각해야 한다.</p></li>
 <li><p>자료구조에는 데이터의 수정, 삽입, 추가, 삭제가 자유로운 가변 데이터 타입과 한번 만들고 나면 수정, 삽입, 추가, 삭제 할 수 없는 불변 데이터 타입이 있다.</p></li>
-<li><p>모듈 numpy는 규모 다차원 배열을 쉽고 빠르게 처리할 수 있도록 하는 파이썬 라이브러리이다.</p></li>
+<li><p>모듈 numpy는 대규모 다차원 배열을 쉽고 빠르게 처리할 수 있도록 하는 파이썬 라이브러리이다.</p></li>
+<li><p>NumPy는 워낙 함수가 많고 기능이 깊어서, 2시간 수업만으로 전부 다루기 어렵다. 오늘 배운 배열 생성, 연산, 유용한 함수 정도만 익혀도 데이터 다루는 감을 잡을 수 있다. 이후엔 필요할 때 하나씩 찾아서 익히면 충분하다.</p></li>
 <li><p>numpy 모듈의 배열(array)과 리스트는 벡터연산 제공 여부와 메모리 접근 속도 측면에서 많은 차이가 있다.</p></li>
 <li><p>shallow copy(얕은 복사)와 deep copy(깊은 복사)의 차이를 이해하고 복사하여 사용할 때 주의해야 한다.</p></li>
 </ul>
@@ -2029,10 +2013,8 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3-D array(텐서) 생성하기</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy의 응용</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization-operation">Vectorization operation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy">Numpy의 응용</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorization-operation">Vectorization operation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">배열과 리스트의 비교</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">인덱싱</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">슬라이싱</a></li>
@@ -2048,13 +2030,13 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ii">배열의 유용한 함수들II</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where">where()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#column-stack">column_stack()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max">min(), max()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-mean-median">sum(), mean(), median()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argmin-argmax">argmin(), argmax()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-mean-median">sum(), mean(), median()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#var-std">var(), std()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unique">unique()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abs">abs()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sin-cos">sin(), cos()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dot">dot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#savetxt-loadtxt">파일저장 savetxt() , 읽어오기 loadtxt</a></li>
 </ul>
