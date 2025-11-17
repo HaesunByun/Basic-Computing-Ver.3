@@ -391,13 +391,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">누락값 처리하기</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">중복데이터 처리</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">시계열 데이터</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">피벗 테이블을 이용한 데이터 정리</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI코딩 활용하기</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT에게 질문하기</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">코랩의 AI코딩</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-1-chat-gpt">Practice-1: Chat-GPT로 서울인구데이터 활용해보기</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">chatGPT로 서울인구데이터 활용해보기</a></li>
 </ul>
             </nav>
         </div>
@@ -432,24 +426,6 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </li>
 </ul>
 </div>
-<p>😄 데이터프레임을 생성해주세요.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">ScoresWithLectures</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;국어&#39;</span><span class="p">:[</span><span class="mi">84</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">46</span><span class="p">],</span> <span class="s1">&#39;수학&#39;</span><span class="p">:[</span><span class="mi">87</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">84</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">77</span><span class="p">],</span> <span class="s1">&#39;영어&#39;</span><span class="p">:[</span><span class="mi">78</span><span class="p">,</span><span class="mi">84</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">56</span><span class="p">]}</span>
-<span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;철수&#39;</span><span class="p">,</span><span class="s1">&#39;영이&#39;</span><span class="p">,</span><span class="s1">&#39;길동&#39;</span><span class="p">,</span><span class="s1">&#39;미영&#39;</span><span class="p">,</span><span class="s1">&#39;순이&#39;</span><span class="p">,</span><span class="s1">&#39;철이&#39;</span><span class="p">]</span>
-<span class="c1">#todo 변수 df에 데이터프레임을 생성해주세요.</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>😄 각 학생 별 ‘총점’ 열을 추가해 주세요.</p>
-<p>😄 ‘길동’의 컴기 점수를 86점으로 수정해 주세요.</p>
-<p>😄 길동의 총점도 다시 계산해 주세요.</p>
-<p>😄 ‘강좌’열을 추가하고 ‘001’을 값으로 넣어주세요.</p>
-<p>😄 과목별 ‘합계’행을 만들어보세요.</p>
-<p>😄 ‘강좌’열을 삭제해주세요.</p>
-<p>😄 ‘합계’행을 삭제해주세요.</p>
 <div class="section" id="id1">
 <h2>파일 입출력<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <table class="colwidths-auto table">
@@ -535,7 +511,47 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <p>Output: 한글</p>
 </div>
 <ul class="simple">
-<li><p>파일 읽고 저장하기</p></li>
+<li><p>서울인구데이터 다운로드하여 활용해보기</p>
+<ul>
+<li><p>데이터 다운로드 사이트 : <a class="reference external" href="https://data.seoul.go.kr/">https://data.seoul.go.kr/</a></p></li>
+<li><p>검색어: 서울시 자치구별 인구수</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>필요한 칼럼만 불러와서 데이타프레임 생성하기</p>
+<ul>
+<li><p>다운로드한 파일을 열어서 아래의 옵션에 사용할 칼럼을 살펴본다.</p></li>
+<li><p>header: 칼럼 이름 지정</p></li>
+<li><p>index_col: index로 지정할 칼럼 지정</p></li>
+<li><p>usecols: 사용할 칼럼 지정</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>header옵션으로 칼럼을 지정할 수 있다.</p></li>
+</ul>
+<ul class="simple">
+<li><p>index_col 옵션은 파일을 읽어올때 인덱스를 지정하여 읽어올 수 있게 해준다.</p></li>
+<li><p>데이터프레임에서 set_index()로 열을 인덱스로 변경할 수도 있다.</p></li>
+</ul>
+<ul class="simple">
+<li><p>usecols 옵션은 사용할 칼럼을 지정하여 읽어온다.</p></li>
+</ul>
+<ul class="simple">
+<li><p>칼럼의 이름 한꺼번에 변경하기</p></li>
+</ul>
+<ul class="simple">
+<li><p>불필요한 행 삭제하기</p></li>
+</ul>
+<ul class="simple">
+<li><p>to_csv()로 전처리 된 데이터프레임을 파일로 저장하기</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>자료형 다루기<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>.astype(자료형)</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,255 +629,6 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 엑셀로 저장하기</span>
-<span class="n">d1</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;sample.xlsx&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 엑셀 읽어오기</span>
-<span class="n">d2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;sample.xlsx&quot;</span><span class="p">)</span>
-<span class="n">d2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>국어</th>
-      <th>수학</th>
-      <th>영어</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>철수</td>
-      <td>84</td>
-      <td>87</td>
-      <td>78</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>영이</td>
-      <td>21</td>
-      <td>15</td>
-      <td>84</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>길동</td>
-      <td>87</td>
-      <td>84</td>
-      <td>76</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>미영</td>
-      <td>100</td>
-      <td>87</td>
-      <td>99</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>순이</td>
-      <td>59</td>
-      <td>99</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>철이</td>
-      <td>46</td>
-      <td>77</td>
-      <td>56</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<ul class="simple">
-<li><p>index_col 옵션은 인덱스 칼럼을 지정하여 읽어올 수 있게 해준다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;sample.xlsx&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">d2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>국어</th>
-      <th>수학</th>
-      <th>영어</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>철수</th>
-      <td>84</td>
-      <td>87</td>
-      <td>78</td>
-    </tr>
-    <tr>
-      <th>영이</th>
-      <td>21</td>
-      <td>15</td>
-      <td>84</td>
-    </tr>
-    <tr>
-      <th>길동</th>
-      <td>87</td>
-      <td>84</td>
-      <td>76</td>
-    </tr>
-    <tr>
-      <th>미영</th>
-      <td>100</td>
-      <td>87</td>
-      <td>99</td>
-    </tr>
-    <tr>
-      <th>순이</th>
-      <td>59</td>
-      <td>99</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>철이</th>
-      <td>46</td>
-      <td>77</td>
-      <td>56</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># csv로 저장하기</span>
-<span class="n">d2</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;sample.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sample.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;euc-kr&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">d2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>국어</th>
-      <th>수학</th>
-      <th>영어</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>철수</th>
-      <td>84</td>
-      <td>87</td>
-      <td>78</td>
-    </tr>
-    <tr>
-      <th>영이</th>
-      <td>21</td>
-      <td>15</td>
-      <td>84</td>
-    </tr>
-    <tr>
-      <th>길동</th>
-      <td>87</td>
-      <td>84</td>
-      <td>76</td>
-    </tr>
-    <tr>
-      <th>미영</th>
-      <td>100</td>
-      <td>87</td>
-      <td>99</td>
-    </tr>
-    <tr>
-      <th>순이</th>
-      <td>59</td>
-      <td>99</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>철이</th>
-      <td>46</td>
-      <td>77</td>
-      <td>56</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="id2">
-<h2>자료형 다루기<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>.astype(자료형)</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2</span> <span class="o">=</span> <span class="n">d1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;str&#39;</span><span class="p">)</span>
@@ -1218,8 +985,7 @@ dtype: int64
 <li><p>행제거: .dropna(subset=[‘열1’,’열2’] axis=0)</p>
 <ul>
 <li><p>‘열1’ 또는 ‘열2’ 중 하나라도 NaN이면 해당 행(row)을 제거</p></li>
-<li><p>생략하면 모든 열을 기준으로 NaN이 있는 행을 제거</p></li>
-<li><p>dropna는 기본적으로 행제거하는 함수</p></li>
+<li><p>subset 옵션을 생략하면 모든 열을 기준으로 NaN이 있는 행을 제거</p></li>
 </ul>
 </li>
 <li><p>열제거: .dropna(axis=1)</p>
@@ -1751,10 +1517,12 @@ memory usage: 96.0+ bytes
 </div></div></div>
 </div>
 <ul class="simple">
-<li><p>연-월-일 정보에서 연-월 추출: dt.to_period()를 사용</p></li>
-<li><p>df.to_period(freq=None, axis=0)</p></li>
+<li><p>df.to_period(freq=None, axis=0)</p>
+<ul>
 <li><p>freq : 원하는 시간 단위로 변환(‘Y’,’M’,’D’, ‘W’)</p></li>
 <li><p>axis : 변환할 기준 축</p></li>
+</ul>
+</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1832,7 +1600,7 @@ memory usage: 96.0+ bytes
 </div></div></div>
 </div>
 <ul class="simple">
-<li><p>날짜 인덱스 활용</p></li>
+<li><p>날짜 인덱스를 활용해보자.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2036,13 +1804,13 @@ memory usage: 96.0+ bytes
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2025-05-20&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2025-11-18&#39;</span><span class="p">)</span>
 <span class="n">today</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2025-05-20 00:00:00&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2025-11-18 00:00:00&#39;)
 </pre></div>
 </div>
 </div>
@@ -2098,7 +1866,7 @@ memory usage: 96.0+ bytes
       <td>3</td>
       <td>2</td>
       <td>1990-03</td>
-      <td>12863 days</td>
+      <td>13045 days</td>
     </tr>
     <tr>
       <th>1991-08-08</th>
@@ -2107,7 +1875,7 @@ memory usage: 96.0+ bytes
       <td>8</td>
       <td>8</td>
       <td>1991-08</td>
-      <td>12339 days</td>
+      <td>12521 days</td>
     </tr>
     <tr>
       <th>1990-11-22</th>
@@ -2116,7 +1884,7 @@ memory usage: 96.0+ bytes
       <td>11</td>
       <td>22</td>
       <td>1990-11</td>
-      <td>12598 days</td>
+      <td>12780 days</td>
     </tr>
     <tr>
       <th>1991-01-05</th>
@@ -2125,312 +1893,16 @@ memory usage: 96.0+ bytes
       <td>1</td>
       <td>5</td>
       <td>1991-01</td>
-      <td>12554 days</td>
+      <td>12736 days</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
 </div>
-<div class="section" id="id6">
-<h2>피벗 테이블을 이용한 데이터 정리<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>피벗(pivot): 농구 등에서, 한 발을 붙인 채 남은 한 발을 이리 저리 돌려 방향을 바꾸는 것 의미가 확장되어 분야를 막론하고 ‘방향을 바꾼다’라는 의미. 사전적으로 ‘축을 중심으로 회전하다’ 또는 ‘중심축’이라는 의미</p></li>
-<li><p>피벗 테이블: 데이터를 요약하고 분석하는 데 사용하는 테이블</p></li>
-<li><p>원시 데이터를 한눈에 볼 수 있도록 재구성하고, 필요에 따라 특정 변수에 따라 데이터를 그룹화하거나 집계할 수 있음</p></li>
-<li><p>.pivot_table(df, index=인덱스리스트, values=값리스트)</p></li>
-</ul>
-<ul class="simple">
-<li><p>salesfunnel.xlsx: 판매 거래 데이터</p>
-<ul>
-<li><p>Account: 거래를 진행한 고객의 계정 번호</p></li>
-<li><p>Name: 고객의 이름</p></li>
-<li><p>Rep: 거래를 진행한 판매 대표</p></li>
-<li><p>Manager: 판매 대표를 관리하는 매니저</p></li>
-<li><p>Product: 거래된 제품</p></li>
-<li><p>Quantity: 거래된 제품의 수량</p></li>
-<li><p>Price: 제품 단가</p></li>
-<li><p>Status: 거래의 상태 (presented, pending, declined 등)</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/HaesunByun/common/main/data/salesfunnel.xlsx&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Account</th>
-      <th>Name</th>
-      <th>Rep</th>
-      <th>Manager</th>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>714466</td>
-      <td>Trantow-Barrows</td>
-      <td>Craig Booker</td>
-      <td>Debra Henley</td>
-      <td>CPU</td>
-      <td>1</td>
-      <td>30000</td>
-      <td>presented</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>714466</td>
-      <td>Trantow-Barrows</td>
-      <td>Craig Booker</td>
-      <td>Debra Henley</td>
-      <td>Software</td>
-      <td>1</td>
-      <td>10000</td>
-      <td>presented</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>714466</td>
-      <td>Trantow-Barrows</td>
-      <td>Craig Booker</td>
-      <td>Debra Henley</td>
-      <td>Maintenance</td>
-      <td>2</td>
-      <td>5000</td>
-      <td>pending</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>737550</td>
-      <td>Fritsch, Russel and Anderson</td>
-      <td>Craig Booker</td>
-      <td>Debra Henley</td>
-      <td>CPU</td>
-      <td>1</td>
-      <td>35000</td>
-      <td>declined</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>146832</td>
-      <td>Kiehn-Spinka</td>
-      <td>Daniel Hilton</td>
-      <td>Debra Henley</td>
-      <td>CPU</td>
-      <td>2</td>
-      <td>65000</td>
-      <td>won</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<ul class="simple">
-<li><p>index는 그룹핑할 열의 이름이다.</p></li>
-<li><p>아래 예제에서는 Manager와 Rep를 index로 하여 그룹핑하며, 그룹핑할 values는 ‘price’이다.</p></li>
-<li><p>value를 pivot_table로 합친 경우 디폴트로 평균치로 계산된다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;Rep&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>Price</th>
-    </tr>
-    <tr>
-      <th>Manager</th>
-      <th>Rep</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="3" valign="top">Debra Henley</th>
-      <th>Craig Booker</th>
-      <td>20000.000000</td>
-    </tr>
-    <tr>
-      <th>Daniel Hilton</th>
-      <td>38333.333333</td>
-    </tr>
-    <tr>
-      <th>John Smith</th>
-      <td>20000.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">Fred Anderson</th>
-      <th>Cedric Moss</th>
-      <td>27500.000000</td>
-    </tr>
-    <tr>
-      <th>Wendy Yule</th>
-      <td>44250.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<ul class="simple">
-<li><p>value의 값을 합산으로 하고 싶을 때 aggfunc옵션에 sum함수의 이름을 쓴다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span> <span class="s1">&#39;Rep&#39;</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>Price</th>
-    </tr>
-    <tr>
-      <th>Manager</th>
-      <th>Rep</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="3" valign="top">Debra Henley</th>
-      <th>Craig Booker</th>
-      <td>80000</td>
-    </tr>
-    <tr>
-      <th>Daniel Hilton</th>
-      <td>115000</td>
-    </tr>
-    <tr>
-      <th>John Smith</th>
-      <td>40000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">Fred Anderson</th>
-      <th>Cedric Moss</th>
-      <td>110000</td>
-    </tr>
-    <tr>
-      <th>Wendy Yule</th>
-      <td>177000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</div>
-<div class="section" id="ai">
-<h2>AI코딩 활용하기<a class="headerlink" href="#ai" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>ChatGPT(Generative Pre-trained Transformer)는 미국의 AI 연구재단 OpenAI가 2022년 11월 공개한 초거대 언어모델 GPT-3.5 기반 대화형 인공지능 챗봇이다.</p></li>
-<li><p>Generative(생성형), Pre-trained(미리 학습된) Transformer(변환기)</p></li>
-<li><p>현재 Chat GPT 홈페이지(<a class="reference external" href="https://chat.openai.com/chat">https://chat.openai.com/chat</a>) 에서 누구나 가입 후 사용 가능하다.</p></li>
-<li><p>사용자가 채팅 하듯 질문을 입력하면 ChatGPT는 학습한 데이터를 기반으로 ‘사람처럼’ 문장을 만들어 답을 해준다.</p></li>
-<li><p>마치 진짜 사람과 대화하는 것처럼 자연스럽게 질문과 답변을 주고받을 수 있다.</p></li>
-<li><p>단순 정보 짜깁기뿐 아니라 에세이・소설・시 등 다양한 창작물, 심지어 프로그래밍 코드까지 생성한다는 점에서 화제가 되고 있다.</p></li>
-</ul>
-<p>출시일</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2022.11 — ChatGPT 출시 (GPT-3.5 기반)
-2023.02 — ChatGPT Plus 유료 요금제 도입
-2023.03 — GPT-4 모델 공개 (Plus 사용자에 한해 제공)
-2024.05 — GPT-4o(Omni) 출시: 멀티모달 지원 (텍스트·음성·이미지)
-2025.02 — GPT-4.5 출시 (코드명: Orion)
-2025.04 — o3, o4-mini 모델 출시
-2025.05 — GPT-4.1 및 GPT-4.1 mini 출시
-</pre></div>
-</div>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/chatGPT_logo.png" width="300"></div>
-<p>ChatGPT</p>
-<p><a class="reference external" href="https://chatgpt.com/">https://chatgpt.com/</a></p>
 <div class="section" id="chatgpt">
-<h3>ChatGPT에게 질문하기<a class="headerlink" href="#chatgpt" title="Permalink to this headline">#</a></h3>
-<p>Q. ChatGPT에게 질문해보세요.</p>
+<h2>chatGPT로 서울인구데이터 활용해보기<a class="headerlink" href="#chatgpt" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>ChatGPT란 뭐야?</p></li>
-<li><p>인공지능에 대한 시를 작성해줘</p></li>
-<li><p>ChatGPT 활용 분야를 알려줘</p></li>
-<li><p>Chat GPT는 접속이 원활한 시간이 언제야?</p></li>
-<li><p>Chat GPT 유료와 무료의 차이를 설명해줘</p></li>
-<li><p>세상에서 가장 아름다운 곳은?</p></li>
-<li><p>세익스피어 작품에 대해 가르쳐 줘</p></li>
-</ul>
-</div>
-<div class="section" id="id7">
-<h3>코랩의 AI코딩<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>코랩에서도 AI로 코드를 생성할 수 있다.</p></li>
-</ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/AIcoding.PNG" width=400>
-</div>
-</div>
-<div class="section" id="practice-1-chat-gpt">
-<h3>Practice-1: Chat-GPT로 서울인구데이터 활용해보기<a class="headerlink" href="#practice-1-chat-gpt" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>데이터 다운로드 사이트 : <a class="reference external" href="https://data.seoul.go.kr/">https://data.seoul.go.kr/</a></p></li>
-<li><p>검색어: 서울시 자치구별 인구수</p></li>
 <li><p>목표:</p>
 <ul>
 <li><p>각 구별 한국인의 비율 구하기</p></li>
@@ -2445,16 +1917,6 @@ memory usage: 96.0+ bytes
 </ul>
 </li>
 </ul>
-<p>😄 필요한 칼럼만 불러와서 데이타프레임 생성하기</p>
-<ul class="simple">
-<li><p>다운로드한 파일을 열어서 아래의 옵션에 사용할 칼럼을 살펴본다.</p></li>
-<li><p>header: 칼럼 이름 지정</p></li>
-<li><p>index_col: index로 지정할 칼럼 지정</p></li>
-<li><p>use_cols: 사용할 칼럼 지정</p></li>
-</ul>
-<p>😄 데이타프레임 칼럼명 변경하기</p>
-<p>😄 데이타프레임 인덱스 설정하기</p>
-<p>😄 불필요한 행 삭제하기</p>
 <p>😄 값 구하기</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">각</span> <span class="n">구별</span> <span class="n">한국인의</span> <span class="n">비율</span> <span class="n">구하기</span>
 <span class="n">각</span> <span class="n">구별</span> <span class="n">외국인의</span> <span class="n">비율</span> <span class="n">구하기</span>
@@ -2477,7 +1939,6 @@ memory usage: 96.0+ bytes
 <font color='Grey' size="4">
 F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computing)</font> 서울대학교 학부대학 변해선
 <hr class="docutils" />
-</div>
 </div>
 </div>
 
@@ -2547,13 +2008,7 @@ F37.101 컴퓨팅 기초: 처음 만나는 컴퓨팅(First Adventures in Computi
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">누락값 처리하기</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">중복데이터 처리</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">시계열 데이터</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">피벗 테이블을 이용한 데이터 정리</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai">AI코딩 활용하기</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">ChatGPT에게 질문하기</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">코랩의 AI코딩</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practice-1-chat-gpt">Practice-1: Chat-GPT로 서울인구데이터 활용해보기</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatgpt">chatGPT로 서울인구데이터 활용해보기</a></li>
 </ul>
   </nav></div>
 
