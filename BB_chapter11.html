@@ -739,6 +739,11 @@ dtype: object
 </div>
 <ul class="simple">
 <li><p>groupby() 자체는 결과를 보여주지 않고, 함수를 이어 적용해야 결과 생성</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.groupby('반').size()</span></code> : 반별 행의 개수, 결측값과 관계없이 행의 개수를 계산</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.groupby('반')['점수'].count()</span></code> : 반별 점수 데이터의 개수, 점수 열의 결측값을 제외하고 개수를 계산</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.groupby('반')['점수'].sum()</span></code> : 반별 점수의 합</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.groupby('반')['점수'].mean()</span></code> : 반별 점수의 평균</p></li>
+  
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1666,7 +1671,7 @@ Name: 국어, dtype: bool
   </tbody>
 </table>
 </div></div></div>
-</div>
+</div> 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d3</span>
@@ -1762,6 +1767,13 @@ Name: 국어, dtype: bool
 </div>
 </div>
 </div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>특정 열에서 중복을 제외한 고유값을 반환하며, 원본 데이터의 중복값을 제거하지는 않음</p></li>
+</ul>
+  
 <div class="section" id="id11">
 <h2>문자열 데이터 처리<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
 <p>데이터 분석에서는 아래와 같이 문자열 데이터를 분석에 맞게 다듬는 다양한 작업을 수행</p>
