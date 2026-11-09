@@ -1773,7 +1773,20 @@ Name: 국어, dtype: bool
 <ul class="simple">
 <li><p>특정 열에서 중복을 제외한 고유값을 반환하며, 원본 데이터의 중복값을 제거하지는 않음</p></li>
 </ul>
-  
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;이름&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;민수&#39;</span><span class="p">,</span> <span class="s1">&#39;지수&#39;</span><span class="p">,</span> <span class="s1">&#39;영희&#39;</span><span class="p">,</span> <span class="s1">&#39;철수&#39;</span><span class="p">,</span> <span class="s1">&#39;수진&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;학과&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;컴퓨터&#39;</span><span class="p">,</span> <span class="s1">&#39;경영&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨터&#39;</span><span class="p">,</span> <span class="s1">&#39;국문&#39;</span><span class="p">,</span> <span class="s1">&#39;경영&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;학과&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>  
 <div class="section" id="id11">
 <h2>문자열 데이터 처리<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
 <p>데이터 분석에서는 아래와 같이 문자열 데이터를 분석에 맞게 다듬는 다양한 작업을 수행</p>
